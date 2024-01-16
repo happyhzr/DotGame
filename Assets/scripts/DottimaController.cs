@@ -6,6 +6,7 @@ public class DottimaController : MonoBehaviour
 {
     public float speed;
     private Rigidbody2D rb;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +24,6 @@ public class DottimaController : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         rb.velocity = moveInput.normalized * speed;
+        animator.SetFloat("Speed", rb.velocity.magnitude);
     }
 }
